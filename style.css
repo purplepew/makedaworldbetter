@@ -1,0 +1,201 @@
+*{
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+body{
+	min-height: 100vh;
+	width: 100%;
+	background: url('img-background.jpg') no-repeat;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	animation: backgroundEffect 1.5s ease;
+
+}
+
+.menu-hamburger{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 50px;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.menu-hamburger span{
+	height: 4px;
+	width: 30px;
+	background: rgba(225,225,225,1);
+	border-radius: 4px;
+	box-shadow: 0 11px rgba(225,225,225,1), 0 -11px rgba(225,225,225,1);
+	transition: all .6s;
+
+}
+.menu-hamburger:hover span{
+	background: rgba(225,225,225,.4);
+	box-shadow: 0 11px rgba(225,225,225,.4), 0 -11px rgba(225,225,225,.4);
+	transform: rotate(10deg);
+}
+
+@keyframes backgroundEffect{
+	from{
+		background: #3f3f3f;
+	}
+}
+
+@keyframes fromTop{
+	from{
+		width: 0;
+	}
+}
+
+
+@keyframes movesDown{
+	from{
+		transform: translate(5px, -20px);
+		opacity: 0;
+	}
+}
+
+
+@keyframes scaleEffect{
+	from{
+		transform: translateX(105px);
+	}
+}
+
+@keyframes opacityEffect{
+	from{
+		opacity: 0;
+	}
+}
+
+
+header .logo{
+	font-size: 40px;
+	color: white;
+	font-family: OCR A Extended;
+	pointer-events: none;
+	position: relative;
+	animation: opacityEffect 3.5s ease;
+
+}
+header .logo::before{
+	content: 'TM';
+	position: absolute;
+	font-size: .7rem;
+	color: black;
+	right: 0;
+}
+
+header{
+	padding: 30px 25px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+/* header end */
+section{
+	font-family: Aerial, sans-serif;
+	padding: 0 25px;
+	margin-top: 150px;
+	pointer-events: none;
+}
+
+section h1{
+	font-size: 50px;
+	width: 450px;
+	height: 190px;
+	color: #494949;
+	animation: movesDown .5s ease-out;
+}
+section h1 span{
+	color: #73485D;
+}
+section p {
+	width: 440px;
+	height: 120px;
+	font-size: 1.3rem;
+	animation: movesDown .9s ease;
+}
+section p span{
+	color: #905175;
+}
+
+section button{
+	pointer-events: auto;
+	outline: 3px solid #A91C63;
+	padding: 15px 30px;
+	background: none;
+	font-weight: bold;
+	letter-spacing: .7px;
+	font-family: Trebuchet MS;
+	transition: all .2s;
+	border: none;
+	animation: scaleEffect .9s ease;
+}
+section button:hover{
+	color: white;
+	background: #202020;
+	outline-offset: -3px;
+}
+
+
+.link::before{
+	content: url('link-logo.svg');
+}
+.tip::before{
+	content: url('tip-logo.svg');
+}
+.linkContent:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.tipContent, .linkContent{
+	animation: slide .8s ease;
+	text-decoration: none;
+}
+
+
+@keyframes slide{
+	0%{transform: translateX(50px);
+		opacity: 0;}
+	100%{}
+}
+
+@media screen and (max-width: 700px){
+	body{
+		overflow-y: scroll;
+	}
+	section{
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+		height: 200px;
+		transition: all 1s;
+	}
+	section h1{
+		font-size: 1.8rem;
+		margin: 0;
+		padding: 15px;
+		width: 200px;
+	}
+	section p{
+		font-size: .9rem;
+		padding: 15px;
+		width: 200px;	
+	}
+	section button{
+		transform: scale(.8);
+		width: 200px;
+	}
+	.tipContent{
+		width: 100%;
+	}
+}
